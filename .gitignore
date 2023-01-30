@@ -1,0 +1,5 @@
+build
+.vscode
+Examples/esp32.svd
+Examples/debug.cfg
+Examples/debug_custom.json
