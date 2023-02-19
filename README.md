@@ -13,6 +13,16 @@ In I2C mode, the onboard chip does a continuous signal and sense, and an
 i2c master asks it for the most recent measurements which is returned as 3 bytes
 encoding the micrometers in big-endian order.
 
+## I2C Citizenship Note
+
+This board isn't a good i2c bus citizen as reported by Adafruit. You _can_ make
+make it work, but basically, you have to call startScanning(), wait long enough
+for the sonar ping to make it back (500ms maybe), readUm(), stopScanning() and
+wait long enough for the RCWL-1601 to regather its wits and then you can use
+the bus for something else.
+
+It's often easier and works better for many applications to put the RCWL-1601 on
+
 ## Installing
 
 Use the Arduino IDE Library manager to add the source archive zip file 
