@@ -64,6 +64,8 @@ long I2C_Sonar::readUm(unsigned long timeout)
   // REVIEW I believe this is incorrect.  endTransmission is for ending a master's
   // write sequence after a matching beginTransmission, but it appears that the 
   // RCWL-1601 expects a stop from the master or the next read will fail.
+  _wire->beginTransmission(_i2c_addr);
+  _wire->write((byte)1);
   _wire->endTransmission();
 
   return um;
